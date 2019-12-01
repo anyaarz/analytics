@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+  <title>Система для сбора данных</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <!-- Add additional CSS in static file -->
+</head>
+
+
+<body>
+    <!-- Navigation -->
+    <header>
+    <nav class="navbar navbar-default menu">
+      <div class="container">
+        <div class="navbar-header">
+        </div> 
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+           
+            <li><a href="/domain/">Область знаний</a></li>
+            <li><a href="/items/">Сущности</a></li>
+            <li><a href="/data/">Собранные данные</a></li>
+
+            <li><a>Максим Хлопотов</a></li>
+            <li><a href="/accounts/logout/?next=/items/11/edit/">Выйти</a></li>   
+          
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+      
+      <div class="content container">
+            <div class="row">
+            
+  <form method="post">
+    <input type='hidden' name='csrfmiddlewaretoken' value='fh2mC4IUQ2xiIZae7WSAYH6UyWU64i1uilQj7xLhDjYdcKVgXVLy3AHyaQw62k5R' />
+    
+
+<div id="div_id_name" class="form-group"> <label for="id_name" class="">
+                Название
+            </label> <div class=""> <input type="text" name="name" value="Макроэкономика" maxlength="200" class="textinput textInput form-control" id="id_name" /> </div> </div> <div id="div_id_domain" class="form-group"> <label for="id_domain" class="">
+                Область знаний
+            </label> <div class=""> <select name="domain" class="select form-control" id="id_domain"> <option value="">---------</option> <option value="1">Машинное обучение</option> <option value="2" selected>Экономика</option> <option value="3">Математика</option> <option value="4">Информационная безопасность</option>
+
+</select> <small id="hint_id_domain" class="form-text text-muted">Укажите область</small> </div> </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a class="btn btn-secondary" href="/items/" role="button">Назад</a>
+  </form>
+
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <form method="post">
+        <input type='hidden' name='csrfmiddlewaretoken' value='fh2mC4IUQ2xiIZae7WSAYH6UyWU64i1uilQj7xLhDjYdcKVgXVLy3AHyaQw62k5R' />
+        
+
+<div id="div_id_name" class="form-group"> <label for="id_name" class="">
+                Название
+            </label> <div class=""> <input type="text" name="name" value="Макроэкономика" maxlength="200" class="textinput textInput form-control form-control" id="id_name" /> </div> </div> <div id="div_id_domain" class="form-group"> <label for="id_domain" class="">
+                Область знаний
+            </label> <div class=""> <select name="domain" class="select form-control form-control" id="id_domain"> <option value="">---------</option> <option value="1">Машинное обучение</option> <option value="2" selected>Экономика</option> <option value="3">Математика</option> <option value="4">Информационная безопасность</option>
+
+</select> <small id="hint_id_domain" class="form-text text-muted">Укажите область</small> </div> </div>
+
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Добавить тему</button>
+      </form>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <form method="post">
+        <input type='hidden' name='csrfmiddlewaretoken' value='fh2mC4IUQ2xiIZae7WSAYH6UyWU64i1uilQj7xLhDjYdcKVgXVLy3AHyaQw62k5R' />
+        
+
+<div id="div_id_name" class="form-group"> <label for="id_name" class="">
+                Название
+            </label> <div class=""> <input type="text" name="name" value="Макроэкономика" maxlength="200" class="textinput textInput form-control form-control form-control" id="id_name" /> </div> </div> <div id="div_id_domain" class="form-group"> <label for="id_domain" class="">
+                Область знаний
+            </label> <div class=""> <select name="domain" class="select form-control form-control form-control" id="id_domain"> <option value="">---------</option> <option value="1">Машинное обучение</option> <option value="2" selected>Экономика</option> <option value="3">Математика</option> <option value="4">Информационная безопасность</option>
+
+</select> <small id="hint_id_domain" class="form-text text-muted">Укажите область</small> </div> </div>
+
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+
+
+  </body>
+
+</html>

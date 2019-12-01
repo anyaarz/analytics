@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="jumbotron">
+    <div class="container">
+      <h1>Связи</h1>
+      <p><a class="btn btn-primary btn-lg" href="{% url 'post_relation' %}" role="button"><i class="material-icons left"></i> Добавить</a></p>     
+    </div>
+  </div>
+{% if relation_list %}        
+      
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Сущность</th>
+                  <th>Связь</th>
+                  <th>Сущность</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for rel in relation_list %}
+                <tr>
+                <td></td>
+                <td>{{rel.item1}}</td>
+                <td>{{ rel.get_relation_display }}</td>
+                <td>{{rel.item2}}</td>
+                <td><a class="btn btn-link" href="{% url 'edit_relation' pk=rel.pk %}">Редактировать</a></td>
+                </tr>
+              </tbody>
+              {% endfor %}
+            </table>
+          </div>   
+</div>
+</div>
+ 
+{% endif %}     
+{%else%} 
+    <p>У вас нет доступа к этой странице. Обратитесь к администратору</p>
+    <li><a href="{% url 'index'%}">Вернуться</a></li>      
+{% endif %}       
+{% endblock %}

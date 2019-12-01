@@ -1,0 +1,45 @@
+{% extends "main.html" %}
+
+{% block content %}
+{% if user.is_staff %}
+<div class="jumbotron">
+    <div class="container">
+      <h1>Область знаний</h1>
+      <p><a class="btn btn-primary btn-lg" href="{% url 'post_domain' %}" role="button"><i class="material-icons left"></i> Добавить</a></p>     
+    </div>
+  </div>
+{% if domain_list %}        
+      
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Название</th>
+                  <th>Пользователи</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for domain in domain_list %}
+                <tr>
+                <td>{{domain.id}}</td>
+                <td><a class="btn btn-link" href="{% url 'edit_domain' pk=domain.pk %}">{{ domain.name }}</a></td>
+                  
+                <td><ol>{% for user in domain.user.all%}
+                <li>{{user}}</li>
+                {% endfor %}</ol></td>
+                  
+                </tr>
+              </tbody>
+              {% endfor %}
+            </table>
+          </div>   
+</div>
+</div>
+ 
+{% endif %}     
+{%else%} 
+    <p>У вас нет доступа к этой странице. Обратитесь к администратору</p>
+    <li><a href="{% url 'index'%}">Вернуться</a></li>      
+{% endif %}       
+{% endblock %}

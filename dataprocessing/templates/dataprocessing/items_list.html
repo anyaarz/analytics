@@ -1,0 +1,65 @@
+{% extends "main.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="jumbotron">
+    <div class="container">
+      <h1>Элементы рабочей программы дисциплины</h1>
+      <div class="form-group col-md-6">
+      
+       <form action="/upload/" method="POST" enctype="multipart/form-data" role="form">
+       {% csrf_token %}
+       
+         <label for="file"></label>
+         <input type="file" name="file" id="file" class="form-control" data-filename-placement="inside" title="Выбрать файл" />  
+         <br>     
+         <button type="submit" class="btn btn-primary" name="submit">Отправить</button>
+         <a class="btn btn-primary " href="{% url 'post_items' %}" role="button"><i class="material-icons left"></i> Добавить</a>
+         </div>
+      </form>   
+    </div>
+    </div>
+  </div>
+
+{% include 'dataprocessing/value.html'%}
+{% if items_list %} 
+
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Название</th>
+                  <th>Область</th>
+                  <th>Важность</th>
+                  <th>Автор</th>
+                  <th>Источник</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for item in items_list %}  
+              <!-- {% for user in item.domain.user.all %} 
+                {% if user == request.user %} -->
+                <tr>
+                <td>{{item.id}}</td>
+                <td><a class="btn btn-link" href="{% url 'edit_items' pk=item.pk %}">{{ item.name }}</a></td>
+                 <td>{{item.domain}}</td>
+                 <td>{{item.value}}</td>
+                 <td>{{item.author.get_full_name}}</td>
+                 <td>{{item.source}}</td>
+                </tr>
+              </tbody>
+              <!--{%endif%}              
+              {% endfor %}-->
+    {% endfor %}
+            </table>
+          </div>   
+</div>
+</div>
+{% endif %}
+{%else%}    
+     <p>Войдите или зарегестрируйтесь, чтобы увидеть эту страницу.</p>
+     <p><a href="{% url 'login'%}?next={{request.path}}">Войти</a></p>  
+     <p><a href="{% url 'register' %}">Зарегестрироваться</a></p>   
+{% endif %}        
+{% endblock %}

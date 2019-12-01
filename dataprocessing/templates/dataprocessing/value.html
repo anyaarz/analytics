@@ -1,0 +1,96 @@
+<p>
+  <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#score" aria-expanded="false" aria-controls="score">Оценить важность</button>
+  <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#relation" aria-expanded="false" aria-controls="relation">Добавить связь</button>
+  <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#compare" aria-expanded="false" aria-controls="compare">Сравнить две сущности</button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="score">
+      <form method="POST" action="">
+      {% csrf_token %}
+      <div class="form-group col-md-12"> 
+      <label class="ItemsSelect" for="ItemsSelect">Элементы РПД</label>
+      <select name = 'name' class="form-control" id="ItemsSelect">
+      {% for item in items_list %}
+        {% for user in item.domain.user.all %}
+          {% if user == request.user %} 
+      <option>{{item.name}}</option>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+      </select>
+      </div>
+      <div class="form-group col-md-12"> 
+          <label>Оценка</label><br>
+          <input type="number" name="value" />
+          </div>
+      <div class="form-group col-md-12"> 
+      <button type="submit" class="btn btn-warning">Сохранить</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="col">
+    <div class="collapse multi-collapse" id="relation">
+      <form method="POST" action="">
+      {% csrf_token %}
+      <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="ItemsSelect">Элементы РПД</label>
+      <select name = 'name' class="form-control" id="ItemsSelect">
+      {% for item in items_list %}
+      <option>{{item.name}}</option>
+      {% endfor %}
+      </select>
+      </div>
+      </div>
+      <div class="form-group col-md-6">
+      <label for="ItemsSelect2">Элементы РПД</label>
+      <select name = 'name2' class="form-control" id="ItemsSelect2">
+      {% for item in items_list %}
+      <option>{{item.name}}</option>
+      {% endfor %}
+      </select>
+  </div>
+    <div class="form-group col-md-12">
+    <label>Связь</label><br>
+    <select name = 'relation' class="form-control" id="ItemsSelect2">
+      <option>0 - неопределённое</option>
+      <option>1 - включает в себя</option>
+      <option>2 - является пререквизитом для</option>
+      <option>3 - тождество</option>
+      <option>4 - являются частями одного раздела</option>
+      <option>5 - отсутствует</option>
+      </select>
+    </div>
+    <div class="form-group col-md-12">
+      <button type="submit" class="btn btn-warning">Сохранить</button>
+    </div>
+    </form>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="collapse multi-collapse" id="compare">
+      <form method="POST" action="">
+      {% csrf_token %}
+      <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="ItemsSelect3">Выберете из списка: </label>
+      <select name = 'name' class="form-control" id="ItemsSelect3">
+      {% for item in random_items %}
+      <option>{{item}}</option>
+      {% endfor %}
+      </select>
+      <input type="hidden" name="rand" value="{{random_items}}" />
+  </div>
+    <div class="form-group col-md-12">
+      <button type="submit" class="btn btn-warning">Сохранить</button>
+    </div>
+    </form>
+    </div>
+  </div>
+

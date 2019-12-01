@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h1>Система сбора данных для учебной аналитики</h1>
+
+<h2>Динамические данные</h2>
+
+  <p>Количество зарегестрированных данных:</p>
+  <ul>
+    <li><strong>Область знаний:</strong> {{ num_domain }}</li>
+    <li><strong>Сущности:</strong> {{ num_items }}</li>
+  </ul>
+
+{% endblock %}
