@@ -12,10 +12,12 @@ class Domain(models.Model):
 
 class Items(models.Model):
     name = models.CharField(max_length=200, blank=True, verbose_name='Название')
-    domain = models.ForeignKey(Domain,null = True, blank = True, help_text='Укажите область', verbose_name='Область знаний',on_delete=models.CASCADE,)
+    domain = models.ForeignKey(Domain, blank = True, help_text='Укажите область', verbose_name='Область знаний',on_delete=models.CASCADE,)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name = 'author', verbose_name='Пользователи')
     value = models.IntegerField(blank=True, null = True, verbose_name='Значение')
     source = models.CharField(max_length=200, blank=True, verbose_name='Источник')    
+    date_created = models.DateField(auto_now_add=False, verbose_name='Дата создания')
+    date_updated = models.DateField(auto_now_add=False, verbose_name='Дата обновления')
     def __str__(self):
         return self.name
     
@@ -24,7 +26,7 @@ class Relation(models.Model):
     STATUS_CHOICES = (
         ('0', 'неопределенное'),
         ('1', 'включает в себя'),
-        ('2', 'является пререквезитом'),
+        ('2', 'является пререквизитом'),
         ('3', 'тождество'),
         ('4', 'являются частями одного раздела'),
         ('5', 'отсутствует'),

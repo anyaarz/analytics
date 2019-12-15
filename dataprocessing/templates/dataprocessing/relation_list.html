@@ -3,11 +3,11 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div class="jumbotron">
-    <div class="container">
-      <h1>Связи</h1>
-      <p><a class="btn btn-primary btn-lg" href="{% url 'post_relation' %}" role="button"><i class="material-icons left"></i> Добавить</a></p>     
-    </div>
-  </div>
+    <h1>Связи элементов РПД</h1>
+    <p>Здесь вы можете посмотреть список всех добавленных связей в базе и отредактировать их.</p>
+    <p><a class="btn btn-primary " href="{% url 'post_relation' %}" role="button"><i class="material-icons left"></i> Добавить</a>
+</p>
+</div>
 {% if relation_list %}        
       
           <div class="table-responsive">

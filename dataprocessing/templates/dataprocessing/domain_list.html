@@ -3,11 +3,11 @@
 {% block content %}
 {% if user.is_staff %}
 <div class="jumbotron">
-    <div class="container">
-      <h1>Область знаний</h1>
-      <p><a class="btn btn-primary btn-lg" href="{% url 'post_domain' %}" role="button"><i class="material-icons left"></i> Добавить</a></p>     
-    </div>
-  </div>
+    <h1>Предметная область</h1>
+    <p>Здесь вы можете добавить преметную область и назначить ее соответсвующим пользователям. При клике на название предметной области открывается окно для редактирования. </p>
+    <p><a class="btn btn-primary " href="{% url 'post_domain' %}" role="button"><i class="material-icons left"></i> Добавить</a>
+</p>
+</div>
 {% if domain_list %}        
       
           <div class="table-responsive">
@@ -37,9 +37,10 @@
 </div>
 </div>
  
-{% endif %}     
-{%else%} 
-    <p>У вас нет доступа к этой странице. Обратитесь к администратору</p>
-    <li><a href="{% url 'index'%}">Вернуться</a></li>      
+{% endif %}      
+{%else%}    
+     <p>У вас нет прав доступа к этой странице.</p>
+     <p><a href="{% url 'login'%}?next={{request.path}}">Войти с правами суперпользователя</a></p>
+     <p><a href="{% url 'index'%}">Вернуться</a></p>
 {% endif %}       
 {% endblock %}

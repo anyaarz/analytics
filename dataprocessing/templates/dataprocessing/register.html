@@ -1,10 +1,10 @@
 {% extends "main.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
     <h1>Регистрация</h1>
     <p> Пожалуйста заполните данную форму:</p>
     <form action="." method="post">
-        {{ user_form.as_p}}
+        {{ user_form|crispy}}
         {% csrf_token %}
         <p><input type="submit" value="Создать"></p>
     </form>
