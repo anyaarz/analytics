@@ -171,7 +171,6 @@ def edit_item(request, pk):
         if form.is_valid():
             items = form.save(commit=False)
             items.author = request.user
-            items.date_updated = timezone.now()
             form.save()
             return redirect('/evaluate/')
     else:
@@ -186,7 +185,6 @@ def post_item(request):
         if form.is_valid():
             items = form.save(commit=False)
             items.author = request.user
-            items.date_created = timezone.now()
             form.save()
             data.user = request.user
             data.date = timezone.now()

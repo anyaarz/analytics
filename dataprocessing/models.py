@@ -15,9 +15,7 @@ class Items(models.Model):
     domain = models.ForeignKey(Domain, null = True, blank = True, help_text='Укажите область', verbose_name='Область знаний',on_delete=models.CASCADE,)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name = 'author', verbose_name='Пользователи')
     value = models.IntegerField(blank=True, null = True, verbose_name='Значение')
-    source = models.CharField(max_length=200, blank=True, verbose_name='Источник')    
-    date_created = models.DateField(auto_now_add=False, verbose_name='Дата создания')
-    date_updated = models.DateField(auto_now_add=False, verbose_name='Дата обновления')
+    source = models.CharField(max_length=200, blank=True, verbose_name='Источник')  
     def __str__(self):
         return self.name
     
