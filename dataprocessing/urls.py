@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^relation/new/$', views.post_relation, name='post_relation'),
     url(r'^relation/(?P<pk>\d+)/edit/$', views.edit_relation, name='edit_relation'),
     url(r'^items/new/$', views.post_item, name='post_items'),
-    url(r'^items/(?P<pk>\d+)/edit/$', views.ItemUpdateView.as_view(), name='edit_items'),
+    url(r'^items/(?P<pk>\d+)/edit/$', views.edit_item, name='edit_items'),
     url(r'^items/(?P<pk>\d+)/delete/$', views.item_delete, name='items_delete'),
     url(r'^data/$', views.DataListView.as_view(), name = 'data'),
 
