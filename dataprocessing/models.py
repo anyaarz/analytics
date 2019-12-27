@@ -15,11 +15,7 @@ class Items(models.Model):
     domain = models.ForeignKey(Domain, null = True, blank = True, help_text='Укажите область', verbose_name='Область знаний',on_delete=models.CASCADE,)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name = 'author', verbose_name='Пользователи')
     value = models.IntegerField(blank=True, null = True, verbose_name='Значение')
-<<<<<<< HEAD
-    source = models.CharField(max_length=200, blank=True, verbose_name='Источник')  
-=======
     source = models.CharField(max_length=200, blank=True, verbose_name='Источник')    
->>>>>>> cdef686721bd07230f5f927d59ae37c36a488ef0
     def __str__(self):
         return self.name
     
@@ -33,9 +29,9 @@ class Relation(models.Model):
         ('4', 'являются частями одного раздела'),
         ('5', 'отсутствует'),
     )
-    item1 = models.ForeignKey(Items,on_delete=models.CASCADE, related_name = 'item1', blank=True, null=True)
-    item2 = models.ForeignKey(Items,on_delete=models.CASCADE, related_name = 'item2',  blank=True, null=True)
-    relation = models.CharField(max_length=10, choices=STATUS_CHOICES, default='0')
+    item1 = models.ForeignKey(Items,on_delete=models.CASCADE, related_name = 'item1', blank=True, null=True, verbose_name='Элемент РПД №1')
+    item2 = models.ForeignKey(Items,on_delete=models.CASCADE, related_name = 'item2',  blank=True, null=True,verbose_name='Элемент РПД №2')
+    relation = models.CharField(max_length=10, choices=STATUS_CHOICES, default='0', verbose_name='Связь')
 
 class Data(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name = 'data_user', verbose_name='Пользователи')

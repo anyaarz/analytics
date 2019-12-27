@@ -13,15 +13,40 @@ from django.contrib.auth import logout as auth_logout
 from django.urls import reverse
 from django.template import loader, RequestContext
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
-import random
+from django.template.loader import render_to_string
+
 ''' 
     ItemsListView, RelationListView, DomainListView, DataListView 
     classes to generate a list items views 
 '''
 class ItemsListView(generic.ListView):
     model = Items
+    template_name = 'dataprocessing/item_list.html'
     def get_queryset(self):
         return Items.objects.all()
+
+class ItemUpdateView(UpdateView):
+    model = Items
+    form_class = ItemsForm
+    template_name = 'dataprocessing/item_edit_form.html'
+
+    def dispatch(self, *args, **kwargs):
+        self.id = kwargs['pk']
+        print(Items.objects.get(id=self.id))
+        return super(ItemUpdateView, self).dispatch(*args, **kwargs)
+
+    def form_valid(self, form):
+        if form.is_valid():
+            form.save()
+            item = Items.objects.get(id=self.id)
+            return HttpResponse(render_to_string('dataprocessing/item_edit_form_success.html', {'item':item}))
+        else:
+            form = ItemsForm(instance=relation)
+        return render(request, 'dataprocessing/item_edit_form', {'form': form})
+
+    def get_context_data(self, **kwargs):
+        context = super(ItemUpdateView, self).get_context_data(**kwargs)
+        return context
 
 class RelationListView(generic.ListView):
     model = Relation
@@ -63,19 +88,14 @@ def edit_relation(request, pk):
         form = RelationForm(instance=relation)
     return render(request, 'dataprocessing/edit_relation.html', {'form': form})
 
+
 def post_relation(request):
     # Render the HTML template to post relations
     if request.method == "POST":
         form = RelationForm(request.POST)
         if form.is_valid():
             relation = form.save(commit=False)
-            if relation.relation == '1' or relation.relation == '2':
-                relation = Relation(item1 = relation.item2, item2 = relation.item1, relation = relation.relation)
-                relation.save()
-                data = Data(user = request.user, date = timezone.now(), change_msg = 'created', item = Items.objects.get(pk=relation.item2.id),
-                result = (relation.item1,relation.relation,relation.item2))
-                data.save()
-                form.save()
+            form.save()
             data = Data(user = request.user, date = timezone.now(), change_msg = 'created', item = Items.objects.get(pk=relation.item1.id),
                 result = (relation.item1.id,relation.relation,relation.item2.id))
             data.save()
@@ -84,52 +104,17 @@ def post_relation(request):
         form = RelationForm()
     return render(request, 'dataprocessing/edit_relation.html', {'form': form})
 
+@login_required
 def post_value(request):
     # Render the HTML template items_list.html to evaluate items
     try:
         items_list = Items.objects.all()
-        domain_list = Domain.objects.all()
-        random_items = random.sample(list(items_list), 2)
-        if request.method == "POST":
-            item1_id = Items.objects.get(name = request.POST.get("name")).id
-            data = Data()
-            relation = Relation()
-            data.user = request.user
-            data.date = timezone.now()
-            data.change_msg = 'created'
-            data.item = Items.objects.get(pk=item1_id)
-            if request.POST.get("value"):
-                data.action = 'value'
-                data.result = request.POST.get("value")
-            elif request.POST.get("relation"):
-                item2_id = Items.objects.get(name = request.POST.get("name2")).id
-                data.action = 'relation'
-                relation.item1 = Items.objects.get(pk=item1_id) 
-                relation.item2 = Items.objects.get(pk=item2_id) 
-                relation.relation = request.POST.get("relation").split(' ')[0]
-                relation.save()
-                if relation.relation == '1' or relation.relation == '2':
-                    relation = Relation(item1 = relation.item2, item2 = relation.item1, relation = relation.relation)
-                    relation.save()
-                    data.result = (Items.objects.get(name = request.POST.get("name2")).id,
-                                                request.POST.get("relation").split(' ')[0],
-                                                Items.objects.get(name = request.POST.get("name")).id)
-                    data.save()
-                data = Data(user = request.user, date = timezone.now(), change_msg = 'created',
-                            item = Items.objects.get(pk=item1_id),action = 'relation',
-                            result = (Items.objects.get(name = request.POST.get("name")).id,
-                                                 request.POST.get("relation").split(' ')[0],
-                                                 Items.objects.get(name = request.POST.get("name2")).id))
-                
-            else:
-                data.action = 'choice'
-                data.result = request.POST.get("rand")
-                print(random_items)
-            data.save()
-            return redirect("/evaluate/")    
-        return render(request, 'dataprocessing/value.html',context={'items_list':items_list,'domain_list':domain_list,'random_items':random_items})
+        domain_list = Domain.objects.filter(user=request.user)
+
+        return render(request, 'dataprocessing/value.html',context={'items_list':items_list,'domain_list':domain_list,})
     except:
         return render(request, 'dataprocessing/value.html',context={'items_list':items_list,'domain_list':domain_list,})
+
 @login_required
 @permission_required('is_staff')
 def post_domain(request):
@@ -184,13 +169,13 @@ def post_item(request):
         form = ItemsForm(request.POST)
         if form.is_valid():
             items = form.save(commit=False)
+
             items.author = request.user
             form.save()
-            data.user = request.user
-            data.date = timezone.now()
-            data.change_msg = 'created'
-            data.item = Items.objects.get(pk=items.id)
-            data.result = items
+            data = Data(user = request.user, date = timezone.now(),
+                        change_msg = 'created', item = Items.objects.get(pk=items.id),
+                        result = items)
+            data.save()
             data.save()
             return redirect('/evaluate/')
     else:
@@ -198,7 +183,10 @@ def post_item(request):
     #else: 
      #   raise Http404("У вас нет прав!")
     return render(request, 'dataprocessing/edit_items.html', {'form': form})
-
+def item_delete(request, pk):
+        items = Items.objects.get (pk = pk)
+        items.delete()
+        return redirect('/items/')
 #get users domain
 #d = Domain.objects.filter(user=request.user)
 #print(d) 
@@ -220,27 +208,27 @@ def register(request):
 
 def upload(request):
     if request.method == 'POST':
-        data = handle_uploaded_file(request.FILES['file'], str(request.FILES['file']))
-        items_list = data.split(',')
-        domain_id = Domain.objects.get(name = request.POST.get("domain")).id
-        for i in items_list:
-            try:
+        try:
+            data = handle_uploaded_file(request.FILES['file'], str(request.FILES['file'])).splitlines()
+            print(data)
+            items_list = []
+            for i in data:
+                items_list.extend(i.split(','))
+            domain_id = Domain.objects.get(name = request.POST.get("domain")).id
+            for i in items_list:
                 if Items.objects.filter(name = i):
                     continue;
                 else:
-                    item = Items()
-                    item.name = i
-                    item.domain = Domain.objects.get(pk=domain_id) 
-                    item.author = request.user
-                    item.source = 'uploaded'
+                    item = Items(name = i, domain = Domain.objects.get(pk=domain_id), 
+                        author = request.user, source = 'uploaded')
                     item.save()
                     data = Data(user = request.user, date = timezone.now(), change_msg = 'uploaded', item = Items.objects.get(pk=item.id),
                         result = item.name)
-                    data.save()      
-            except:
-                pass
-        return redirect('/evaluate/')
-    return HttpResponse("Failed")
+                    data.save()   
+            return redirect('/evaluate/')   
+        except:
+            return HttpResponse("Вы не добавили файл")
+    return HttpResponse("Что-то не так, вернитесь обратно и повторите")
 
 import os
 def handle_uploaded_file(file, filename):

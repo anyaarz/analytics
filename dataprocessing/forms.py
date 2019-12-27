@@ -24,17 +24,33 @@ class DomainForm(forms.ModelForm):
     class Meta:
         model = Domain
         fields = ('name', 'user')
-
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['user'].widget.attrs.update({'class': 'selectpicker'})
+        
 
 class ItemsForm(forms.ModelForm):
     class Meta:
         model = Items
         fields = ('name', 'domain')
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['domain'].widget.attrs.update({'class': 'selectpicker'})
+    
 
 class RelationForm(forms.ModelForm):
     class Meta:
         model = Relation
         fields = ('item1', 'item2', 'relation')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['item1'].widget.attrs.update({'class': 'selectpicker','data-live-search':'true'})
+        self.fields['item1'].empty_label = "--- Выберите значение ---"
+        self.fields['item2'].widget.attrs.update({'class': 'selectpicker','data-live-search':'true'})
+        self.fields['item2'].empty_label = "--- Выберите значение ---"
+        self.fields['relation'].widget.attrs.update({'class': 'selectpicker','data-live-search':'true'})
+
 
 class UploadFileForm(forms.Form):
     file = forms.FileField()
