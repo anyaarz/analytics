@@ -21,7 +21,7 @@ from django.template.loader import render_to_string
 '''
 class ItemsListView(generic.ListView):
     model = Items
-    template_name = 'dataprocessing/item_list.html'
+    #template_name = 'dataprocessing/item_list.html'
     def get_queryset(self):
         return Items.objects.all()
 
