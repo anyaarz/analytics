@@ -1,0 +1,293 @@
+<application>
+  <component name="ProjectJdkTable">
+    <jdk version="2">
+      <name value="Python 3.7 (Chat_on_sockets2)" />
+      <type value="Python SDK" />
+      <homePath value="D:\PyProj\Chat_on_sockets2\venv\Scripts\python.exe" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/DLLs" type="simple" />
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib" type="simple" />
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32" type="simple" />
+            <root url="file://D:/PyProj/Chat_on_sockets2/venv" type="simple" />
+            <root url="file://D:/PyProj/Chat_on_sockets2/venv/Lib/site-packages" type="simple" />
+            <root url="jar://D:/PyProj/Chat_on_sockets2/venv/Lib/site-packages/setuptools-39.1.0-py3.7.egg!/" type="simple" />
+            <root url="file://D:/PyProj/Chat_on_sockets2/venv/Lib/site-packages/pip-10.0.1-py3.7.egg" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/2102505451" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="D:/PyProj/Chat_on_sockets2" />
+    </jdk>
+    <jdk version="2">
+      <name value="Python 3.4 (Chat_on_sockets2)" />
+      <type value="Python SDK" />
+      <version value="Python 3.4.4" />
+      <homePath value="D:\PyProj\Chat_on_sockets2\venv34\Scripts\python.exe" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://D:/Python34/DLLs" type="simple" />
+            <root url="file://D:/Python34/Lib" type="simple" />
+            <root url="file://D:/Python34" type="simple" />
+            <root url="file://D:/PyProj/Chat_on_sockets2/venv34" type="simple" />
+            <root url="file://D:/PyProj/Chat_on_sockets2/venv34/Lib/site-packages" type="simple" />
+            <root url="jar://D:/PyProj/Chat_on_sockets2/venv34/Lib/site-packages/setuptools-39.1.0-py3.4.egg!/" type="simple" />
+            <root url="file://D:/PyProj/Chat_on_sockets2/venv34/Lib/site-packages/pip-10.0.1-py3.4.egg" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-180094294" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="D:/PyProj/Chat_on_sockets2" />
+    </jdk>
+    <jdk version="2">
+      <name value="Python 3.4 (Django_les1)" />
+      <type value="Python SDK" />
+      <version value="Python 3.4.4" />
+      <homePath value="D:\PyProj\Django_les1\venv\Scripts\python.exe" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://D:/Python34/DLLs" type="simple" />
+            <root url="file://D:/Python34/Lib" type="simple" />
+            <root url="file://D:/Python34" type="simple" />
+            <root url="file://D:/PyProj/Django_les1/venv" type="simple" />
+            <root url="file://D:/PyProj/Django_les1/venv/Lib/site-packages" type="simple" />
+            <root url="jar://D:/PyProj/Django_les1/venv/Lib/site-packages/setuptools-39.1.0-py3.4.egg!/" type="simple" />
+            <root url="file://D:/PyProj/Django_les1/venv/Lib/site-packages/pip-10.0.1-py3.4.egg" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/1693961787" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="D:/PyProj/Django_les1" />
+    </jdk>
+    <jdk version="2">
+      <name value="Python 3.4 (untitled)" />
+      <type value="Python SDK" />
+      <version value="Python 3.4.4" />
+      <homePath value="D:\PyProj\untitled\venv\Scripts\python.exe" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://D:/Python34/DLLs" type="simple" />
+            <root url="file://D:/Python34/Lib" type="simple" />
+            <root url="file://D:/Python34" type="simple" />
+            <root url="file://D:/PyProj/untitled/venv" type="simple" />
+            <root url="file://D:/PyProj/untitled/venv/Lib/site-packages" type="simple" />
+            <root url="jar://D:/PyProj/untitled/venv/Lib/site-packages/setuptools-39.1.0-py3.4.egg!/" type="simple" />
+            <root url="file://D:/PyProj/untitled/venv/Lib/site-packages/pip-10.0.1-py3.4.egg" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/1563743717" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="D:/PyProj/untitled" />
+    </jdk>
+    <jdk version="2">
+      <name value="Python 3.4 (blog)" />
+      <type value="Python SDK" />
+      <version value="Python 3.4.4" />
+      <homePath value="D:\PyProj\blog\venv\Scripts\python.exe" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://D:/Python34/DLLs" type="simple" />
+            <root url="file://D:/Python34/Lib" type="simple" />
+            <root url="file://D:/Python34" type="simple" />
+            <root url="file://D:/PyProj/blog/venv" type="simple" />
+            <root url="file://D:/PyProj/blog/venv/Lib/site-packages" type="simple" />
+            <root url="jar://D:/PyProj/blog/venv/Lib/site-packages/setuptools-39.1.0-py3.4.egg!/" type="simple" />
+            <root url="file://D:/PyProj/blog/venv/Lib/site-packages/pip-10.0.1-py3.4.egg" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-1687038558" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="D:/PyProj/blog" />
+    </jdk>
+    <jdk version="2">
+      <name value="Python 3.4 (anyabot)" />
+      <type value="Python SDK" />
+      <version value="Python 3.4.4" />
+      <homePath value="D:\PyProj\anyabot\venv\Scripts\python.exe" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://D:/Python34/DLLs" type="simple" />
+            <root url="file://D:/Python34/Lib" type="simple" />
+            <root url="file://D:/Python34" type="simple" />
+            <root url="file://D:/PyProj/anyabot/venv" type="simple" />
+            <root url="file://D:/PyProj/anyabot/venv/Lib/site-packages" type="simple" />
+            <root url="jar://D:/PyProj/anyabot/venv/Lib/site-packages/setuptools-39.1.0-py3.4.egg!/" type="simple" />
+            <root url="file://D:/PyProj/anyabot/venv/Lib/site-packages/pip-10.0.1-py3.4.egg" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-1130228910" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="D:/PyProj/anyabot" />
+    </jdk>
+    <jdk version="2">
+      <name value="Python 3.4 (ch1)" />
+      <type value="Python SDK" />
+      <version value="Python 3.4.4" />
+      <homePath value="D:\PyProj\ch1\venv\Scripts\python.exe" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://D:/Python34/DLLs" type="simple" />
+            <root url="file://D:/Python34/Lib" type="simple" />
+            <root url="file://D:/Python34" type="simple" />
+            <root url="file://D:/PyProj/ch1/venv" type="simple" />
+            <root url="file://D:/PyProj/ch1/venv/Lib/site-packages" type="simple" />
+            <root url="jar://D:/PyProj/ch1/venv/Lib/site-packages/setuptools-39.1.0-py3.4.egg!/" type="simple" />
+            <root url="file://D:/PyProj/ch1/venv/Lib/site-packages/pip-10.0.1-py3.4.egg" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/1690776588" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="D:/PyProj/ch1" />
+    </jdk>
+    <jdk version="2">
+      <name value="Python 3.7 (api_ex1)" />
+      <type value="Python SDK" />
+      <version value="Python 3.7.2" />
+      <homePath value="D:\PyProj\api_ex1\venv\Scripts\python.exe" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/DLLs" type="simple" />
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib" type="simple" />
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32" type="simple" />
+            <root url="file://D:/PyProj/api_ex1/venv" type="simple" />
+            <root url="file://D:/PyProj/api_ex1/venv/Lib/site-packages" type="simple" />
+            <root url="jar://D:/PyProj/api_ex1/venv/Lib/site-packages/setuptools-39.1.0-py3.7.egg!/" type="simple" />
+            <root url="file://D:/PyProj/api_ex1/venv/Lib/site-packages/pip-10.0.1-py3.7.egg" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/1800276697" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="D:/PyProj/api_ex1" />
+    </jdk>
+    <jdk version="2">
+      <name value="Python 3.7 (skrutelev1)" />
+      <type value="Python SDK" />
+      <version value="Python 3.7.2" />
+      <homePath value="D:\PyProj\skrutelev1\venv\Scripts\python.exe" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/DLLs" type="simple" />
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib" type="simple" />
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32" type="simple" />
+            <root url="file://D:/PyProj/skrutelev1/venv" type="simple" />
+            <root url="file://D:/PyProj/skrutelev1/venv/Lib/site-packages" type="simple" />
+            <root url="jar://D:/PyProj/skrutelev1/venv/Lib/site-packages/setuptools-39.1.0-py3.7.egg!/" type="simple" />
+            <root url="file://D:/PyProj/skrutelev1/venv/Lib/site-packages/pip-10.0.1-py3.7.egg" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-920445440" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="D:/PyProj/skrutelev1" />
+    </jdk>
+    <jdk version="2">
+      <name value="Python 3.7 (RabProgManager)" />
+      <type value="Python SDK" />
+      <version value="Python 3.7.2" />
+      <homePath value="D:\PyProj\RabProgManager\venv\Scripts\python.exe" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/DLLs" type="simple" />
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib" type="simple" />
+            <root url="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32" type="simple" />
+            <root url="file://D:/PyProj/RabProgManager/venv" type="simple" />
+            <root url="file://D:/PyProj/RabProgManager/venv/Lib/site-packages" type="simple" />
+            <root url="jar://D:/PyProj/RabProgManager/venv/Lib/site-packages/setuptools-39.1.0-py3.7.egg!/" type="simple" />
+            <root url="file://D:/PyProj/RabProgManager/venv/Lib/site-packages/pip-10.0.1-py3.7.egg" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/287448320" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="D:/PyProj/RabProgManager" />
+    </jdk>
+  </component>
+</application>
