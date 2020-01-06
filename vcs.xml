@@ -6,6 +6,10 @@
           <option name="url" value="https://github.com/TonikX/Chat_on_sockets2.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/TonikX/analytics_vg.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="D:\PyProj" />
