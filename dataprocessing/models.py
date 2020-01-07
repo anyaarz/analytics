@@ -14,7 +14,7 @@ class Items(models.Model):
     name = models.CharField(max_length=200, blank=True, verbose_name='Название')
     domain = models.ForeignKey(Domain, null = True, blank = True, help_text='Укажите область', verbose_name='Область знаний',on_delete=models.CASCADE,)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name = 'author', verbose_name='Пользователи')
-    value = models.IntegerField(blank=True, null = True, verbose_name='Значение')
+    value = models.IntegerField(blank=True, null = True, default = 0, verbose_name='Значение')
     source = models.CharField(max_length=200, blank=True, verbose_name='Источник')    
     def __str__(self):
         return self.name
@@ -24,15 +24,17 @@ class Relation(models.Model):
     STATUS_CHOICES = (
         ('0', 'неопределенное'),
         ('1', 'включает в себя'),
-        ('2', 'является пререквизитом'),
-        ('3', 'тождество'),
-        ('4', 'являются частями одного раздела'),
-        ('5', 'отсутствует'),
+        ('2', 'относится к'),
+        ('3', 'является пререквизитом для'),
+        ('4', 'тождество'),
+        ('5', 'являются частями одного раздела'),
+        ('6', 'отсутствует'),
     )
-    item1 = models.ForeignKey(Items,on_delete=models.CASCADE, related_name = 'item1', blank=True, null=True, verbose_name='Элемент РПД №1')
-    item2 = models.ForeignKey(Items,on_delete=models.CASCADE, related_name = 'item2',  blank=True, null=True,verbose_name='Элемент РПД №2')
-    relation = models.CharField(max_length=10, choices=STATUS_CHOICES, default='0', verbose_name='Связь')
 
+    item1 = models.ForeignKey(Items,on_delete=models.CASCADE, related_name = 'item1', verbose_name='Элемент РПД')
+    relation = models.CharField(max_length=10, choices=STATUS_CHOICES, default='1', verbose_name='Связь')
+    item2 = models.ManyToManyField(Items, related_name = 'item2', verbose_name='Элемент РПД')
+    
 class Data(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name = 'data_user', verbose_name='Пользователи')
     date = models.DateField(auto_now_add=True, verbose_name='Дата')
