@@ -189,7 +189,7 @@ def post_item(request):
         data = Data()
         form = ItemsForm(request.POST)
         if form.is_valid():
-            if not Items.objects.filter(name = form.cleaned_data['item']).exists():
+            if not Items.objects.filter(name = form.cleaned_data['name']).exists():
                 items = form.save(commit=False)
                 items.author = request.user 
                 form.save()
