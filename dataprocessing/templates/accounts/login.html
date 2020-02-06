@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Войти</h1>
+                  </div>
+                   <form action="{% url 'login' %}" method="post">
+                        {{ form|crispy }}
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}"/>
+                        <p><input type="submit" value="Войти"></p>
+                    </form>
+                  <hr>
+                  <div class="text-center">
+                    <a class="small" href="{% url 'reset_password' %}">Забыли пароль?</a>
+                  </div>
+                  <div class="text-center">
+                    <a class="small" href="{% url 'register' %}">Зарегестрироваться</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+{% endblock %}
