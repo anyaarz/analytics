@@ -247,7 +247,10 @@ def post_item(request):
     if request.method == "POST":
         form = ItemsForm(request.POST)
         if form.is_valid():
+<<<<<<< HEAD
             #duplicate check
+=======
+>>>>>>> edd10d565a7f7db7988b089cf021699d2bce0630
             if not Items.objects.filter(name = form.cleaned_data['name']).exists():
                 items = form.save(commit=False)
                 items.author = request.user 
