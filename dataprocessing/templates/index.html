@@ -1,14 +1,299 @@
 {% extends "main.html" %}
-
 {% block content %}
-<h1>Система сбора данных для учебной аналитики</h1>
+{% if user.is_authenticated %}
 
-<h2>Динамические данные</h2>
+ <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+          </div>
 
-  <p>Количество зарегестрированных данных:</p>
-  <ul>
-    <li><strong>Область знаний:</strong> {{ num_domain }}</li>
-    <li><strong>Сущности:</strong> {{ num_items }}</li>
-  </ul>
+          <!-- Content Row -->
+          <div class="row">
 
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Ключевых слов</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ num_items }}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Связей</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{num_relation}}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-sitemap fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Областей знаний</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{num_domain}}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-university fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+
+<!-- Profile -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Экспертная область</h1>
+      </div>
+
+          <!-- Content Row -->
+        <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-9 col-md-6">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Экспертная область</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      {% for domain in domain_list %}
+                      {{domain.name}},
+                      {% endfor %}
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-university fa-2x text-gray-300" data-toggle="modal" data-target="#TxtModal"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<br>
+ <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Элементы РПД</h1>
+      </div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Загрузить</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">TXT
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-download fa-2x text-gray-300" data-toggle="modal" data-target="#TxtModal"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Загрузить</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">JSON</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-download fa-2x text-gray-300" data-toggle="modal" data-target="#JsonModal"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Добавить</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><a href="{% url 'post_items' %}">Элементы</a></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+</div>
+<div class="modal fade" id="TxtModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="TxtModalLabel">Загрузите файл с ключевыми словами</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"><b>Формат загружаемого файла:</b>
+              <br>Ключевое слово (дисциплина)
+              <br>Ключевое слово (раздел 1)
+              <br>Ключевое слово (тема 1.1), Ключевое слово (тема 1.2), Ключевое слово (тема 1.3), ... 
+              <br>Ключевое слово (раздел 2) 
+              <br>Ключевое слово (тема 2.1), Ключевое слово (тема 2.2), Ключевое слово (тема 2.3), ...
+        <form action="/upload/" method="POST" enctype="multipart/form-data" role="form">
+       {% csrf_token %}
+       <br>
+        <b>Выберете область знаний: </b>
+        <select name = 'domain' class="selectpicker" data-live-search="true" id="DomainSelect">
+        {% for domain in domain_list %}
+        <option>{{domain.name}}</option>
+        {% endfor %}
+        </select>
+        <br>
+        <label>Выберите тип связи</label>
+        <select name = 'relation' class="selectpicker" data-live-search="true" id="ItemsSelect2">
+              <option>0 - неопределённое</option>
+              <option>1 - включает в себя</option>
+              <option>3 - является пререквизитом для</option>
+              <option>5 - тождество</option>
+              <option>7 - отсутствует</option>
+        </select>
+        <br>
+         <label for="file"></label>
+         <input type="file" name="file" id="file" class="form-control" data-filename-placement="inside" title="Выбрать файл" />  
+      </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-primary" name="submit">Отправить</button>
+        </div>
+        </form> 
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="JsonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="JsonModalLabel">Загрузите файл с ключевыми словами</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"><b>Формат загружаемого файла:</b>
+        <form action="/upload/" method="POST" enctype="multipart/form-data" role="form">
+            {% csrf_token %}
+            <br>
+         <label for="file"></label>
+         <input type="file" name="file" id="file" class="form-control" data-filename-placement="inside" title="Выбрать файл" />  
+      </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-primary" name="submit">Отправить</button>
+        </div>
+        </form> 
+      </div>
+    </div>
+  </div>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Связи</h1>
+      </div>
+
+ <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Добавить</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><a href = "{% url 'post_relation' %}">Любую связь</a>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-sitemap fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Добавить связь</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="{% url 'post_relation_2' %}">Иерархия</a></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-sitemap fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Добавить связь</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><a href="{% url 'post_relation_3' %}">Пререквизит</a></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-sitemap fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+{%else%} 
+    <p>У вас нет доступа к этой странице. Обратитесь к администратору</p>
+    <li><a href="{% url 'index'%}">Вернуться</a></li>      
+{% endif %}       
 {% endblock %}

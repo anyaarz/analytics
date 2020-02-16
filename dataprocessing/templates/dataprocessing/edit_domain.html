@@ -1,10 +1,13 @@
 {% extends "main.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="-col-md-6 col-md-offset-3">
+<div class="jumbotron">
   <form method="post">
     {% csrf_token %}
     {{ form|crispy }}
     <button type="submit" class="btn btn-primary">Сохранить</button>
     <a class="btn btn-secondary" href="{% url 'domain' %}" role="button">Назад</a>
   </form>
+  </div></div>
 {% endblock %}

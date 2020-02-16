@@ -1,5 +1,5 @@
 from django import forms
-from .models import User, Domain, Items, Data, Relation
+from .models import User, Domain, Items, Relation
 from django.forms import inlineformset_factory
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
@@ -21,6 +21,7 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError('Passwords don\'t match.')
         return cd['password2']
 
+
 class DomainForm(forms.ModelForm):
     class Meta:
         model = Domain
@@ -31,6 +32,7 @@ class DomainForm(forms.ModelForm):
         
 
 class ItemsForm(forms.ModelForm):
+    
     class Meta:
         model = Items
         fields = ('name', 'domain')
@@ -49,31 +51,23 @@ class RelationForm(forms.ModelForm):
         но на будущее можно попытаться автоматизировать. На будущее, 
         подумать, что вообще делать с синонимами и переводами ключевых 
         слов на английский язык.  
+ 
     """
-    STATUS_CHOICES = (
-        ('0', 'неопределенное'),
-        ('1', 'включает в себя'),
-        ('2', 'относится к'),
-        ('3', 'является пререквизитом для'),
-        ('4', 'тождество'),
-        ('5', 'являются частями одного раздела'),
-        ('6', 'отсутствует'),
-    )
     item1 = forms.ModelChoiceField(widget = forms.Select(attrs={'class': 'selectpicker','data-live-search':'true'}),
         label = 'Элементы РПД',initial= Items.objects.order_by("?").first(), 
-        queryset=Items.objects.all())
+        queryset=Items.objects.order_by('name'))
     item2 = forms.ModelMultipleChoiceField(widget = forms.SelectMultiple(attrs={'class': 'selectpicker','data-live-search':'true'}), 
         label = 'Элементы РПД', initial= Items.objects.order_by("?").first(), 
-        queryset=Items.objects.all()) 
-
+        queryset=Items.objects.order_by('name'))
+    
     class Meta:
         model = Relation
         fields = ('item1','relation', 'item2')
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)    
-        self.fields['relation'].widget.attrs.update({'class': 'selectpicker','data-live-search':'true'})
+        self.fields['relation'].widget.attrs.update({'class': 'selectpicker','data-live-search':'true'})    
 
+    
 class RelationFormHierarhy(forms.ModelForm):
     """
         B) Иерархическая связь. 
@@ -85,12 +79,14 @@ class RelationFormHierarhy(forms.ModelForm):
     """
     first_id = Items.objects.first().id
     last_id = Items.objects.last().id
-    #items_list = list(Items.objects.value_list('id').order_by('id'))
+    #first_id = 109
+    #last_id = 200
+    initial = Items.objects.order_by("?").first()
     rand_ids = random.sample(range(first_id, last_id), 10)
-    query_set = Items.objects.filter(id__in=rand_ids)
+    query_set = Items.objects.filter(id__in=rand_ids).exclude(name = initial)
 
     item1 = forms.ModelChoiceField(widget = forms.Select(attrs={'class': 'selectpicker','data-live-search':'true'}),
-        label = 'Элементы РПД',initial= Items.objects.order_by('value').first(), 
+        label = 'Элементы РПД',initial = initial, 
         queryset=Items.objects.all())
     item2 = forms.ModelMultipleChoiceField(widget = forms.CheckboxSelectMultiple, label = 'Выберите соотвествующие элементы РПД:',
         initial=query_set, queryset=query_set) 
@@ -117,13 +113,15 @@ class RelationFormPrerequisiter(forms.ModelForm):
     """
     first_id = Items.objects.first().id
     last_id = Items.objects.last().id
+
     rand_ids = random.sample(range(first_id, last_id), 10)
-    query_set = Items.objects.filter(id__in=rand_ids)
+    initial = Items.objects.order_by("?").first()
+    query_set = Items.objects.filter(id__in=rand_ids).exclude(name = initial)
     
     item1 = forms.ModelChoiceField(widget = forms.Select(attrs={'class': 'selectpicker','data-live-search':'true'}),
-        label = 'Элементы РПД',initial= Items.objects.order_by("?").first(), 
+        label = 'Элементы РПД',initial= initial, 
         queryset=Items.objects.all())
-    item2 = forms.ModelMultipleChoiceField(widget = forms.SelectMultiple(attrs={'class': 'selectpicker','data-live-search':'true'}), label = 'Выберите соотвествующие элементы РПД:',
+    item2 = forms.ModelMultipleChoiceField(widget = forms.CheckboxSelectMultiple, label = 'Выберите соотвествующие элементы РПД:',
         initial=query_set, queryset=query_set) 
     
     class Meta:
