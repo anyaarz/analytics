@@ -1,3 +1,15 @@
 __pycache__/*
-db.sqlite3
 venv/
+colors.scheme.xml
+databaseDrivers.xml
+debugger.xml
+editor.codeinsight.xml
+filetypes.xml
+find.xml
+github.xml
+ide.general.xml
+project.default.xml
+vcs.xml
+wsl.distributions.xml
+_windows
+codestyles
