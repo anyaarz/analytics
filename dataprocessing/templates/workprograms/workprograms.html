@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+{% block title %}Edit your account{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% for workprogram in workprograms %}
+
+        <a href="{% url 'workprograms_update' pk=workprogram.pk %}">{{ workprogram.title }}</a> <br>
+        {{ workprogram.hoursFirstSemester }} {{ workprogram.hoursSecondSemester }}
+        Выходные слова:<br><br>
+        {% for outcomes_level in workprogram.outcomes_levels %}
+            айтим: {{ outcomes_level.item }}, уровень айтима: {{ outcomes_level.item_level }}<br>
+        {% endfor %}<br>
+        Входные слова:<br>
+        {% for prerequisites_level in workprogram.prerequisites_levels %}
+            айтим: {{ prerequisites_level.item }}, уровень айтима: {{ prerequisites_level.item_level }}<br>
+
+        {% endfor %}<br><br>
+    {% endfor %}
+{% endblock %}
