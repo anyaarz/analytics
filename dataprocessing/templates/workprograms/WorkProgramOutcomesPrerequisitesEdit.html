@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+{% block title %}Edit discipline work programme{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a class="btn btn-secondary" href="{% url 'workprograms' %}" role="button">Назад</a>
+  </form>
+</div></div>
+{% endblock %}

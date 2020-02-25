@@ -2,13 +2,15 @@ from django.conf.urls import url
 from . import views
 from django.contrib.auth.views import (
     login, logout, password_reset, password_reset_done, password_reset_confirm,
-    password_reset_complete
-)
+    password_reset_complete )
+from django.conf import settings
+
 urlpatterns = [
     url(r'^$', views.index, name = 'index'),
     url(r'^register/$', views.register, name='register'),
     url(r'^login/$', login, {'template_name': 'accounts/login.html'}, name='login'),
-    url(r'^profile/edit/$', views.edit_profile, name='edit_profile'),
+    url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
+    #url(r'^profile/edit/$', views.edit_profile, name='edit_profile'),
     url(r'^change-password/$', views.change_password, name='change_password'),
     url(r'^reset-password/$', password_reset, {'template_name': 'accounts/reset_password.html', 
                         'post_reset_redirect': 'accounts/password_reset_done.html', 
@@ -29,8 +31,8 @@ urlpatterns = [
     url(r'^relation/$', views.RelationListView.as_view(), name = 'relation'),
     url(r'^upload/$', views.upload, name = 'upload'),
     url(r'^relation/new/$', views.post_relation, name='post_relation'),
-    url(r'^relation/new/hierarchy$', views.post_relation_2, name='post_relation_2'),
-    url(r'^relation/new/prerequisiter$', views.post_relation_3, name='post_relation_3'),
+    #url(r'^relation/new/hierarchy$', views.post_relation_2, name='post_relation_2'),
+    #url(r'^relation/new/prerequisiter$', views.post_relation_3, name='post_relation_3'),
     url(r'^relation/(?P<pk>\d+)/edit/$', views.edit_relation, name='edit_relation'),
     url(r'^items/new/$', views.post_item, name='post_items'),
     url(r'^items/(?P<pk>\d+)/edit/$', views.edit_item, name='edit_items'),

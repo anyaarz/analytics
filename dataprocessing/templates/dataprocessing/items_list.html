@@ -4,7 +4,7 @@
 {% if user.is_authenticated %}
 {% if items_list %} 
  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Элементы РПД</h1>
+      <h1 class="h3 mb-0 text-gray-800">Учебные сущности</h1>
       </div>
 
           <!-- Content Row -->
@@ -54,7 +54,7 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Добавить</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><a href="{% url 'post_items' %}">Элементы</a></div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><a href="{% url 'post_items' %}">Учебные сущности</a></div>
                         </div>
                       </div>
                     </div>
@@ -76,7 +76,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Выбирите предметную область, затем загрузите файл c расширением .txt.<br><b>Формат загружаемого файла:</b>
+        <div class="modal-body"><b>Формат загружаемого файла:</b>
               <br>Ключевое слово (дисциплина)
               <br>Ключевое слово (раздел 1)
               <br>Ключевое слово (тема 1.1), Ключевое слово (тема 1.2), Ключевое слово (тема 1.3), ... 
@@ -84,12 +84,17 @@
               <br>Ключевое слово (тема 2.1), Ключевое слово (тема 2.2), Ключевое слово (тема 2.3), ...
         <form action="/upload/" method="POST" enctype="multipart/form-data" role="form">
        {% csrf_token %}
-
+       <br>
+        <b>Выберете область знаний: </b>
         <select name = 'domain' class="selectpicker" data-live-search="true" id="DomainSelect">
         {% for domain in domain_list %}
         <option>{{domain.name}}</option>
         {% endfor %}
         </select>
+        <br>
+        <div class="checkbox">
+          <label><input type="checkbox" name="hierarchy">Иерархическая связь</label>
+        </div>
         <br>
          <label for="file"></label>
          <input type="file" name="file" id="file" class="form-control" data-filename-placement="inside" title="Выбрать файл" />  
@@ -106,7 +111,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Элементы РПД</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Учебные сущности</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">

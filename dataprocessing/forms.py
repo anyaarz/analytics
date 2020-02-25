@@ -67,7 +67,7 @@ class RelationForm(forms.ModelForm):
         super().__init__(*args, **kwargs)    
         self.fields['relation'].widget.attrs.update({'class': 'selectpicker','data-live-search':'true'})    
 
-    
+'''    
 class RelationFormHierarhy(forms.ModelForm):
     """
         B) Иерархическая связь. 
@@ -79,8 +79,7 @@ class RelationFormHierarhy(forms.ModelForm):
     """
     first_id = Items.objects.first().id
     last_id = Items.objects.last().id
-    #first_id = 109
-    #last_id = 200
+    
     initial = Items.objects.order_by("?").first()
     rand_ids = random.sample(range(first_id, last_id), 10)
     query_set = Items.objects.filter(id__in=rand_ids).exclude(name = initial)
@@ -133,7 +132,7 @@ class RelationFormPrerequisiter(forms.ModelForm):
         self.fields['relation'].widget.attrs.update({'class': 'selectpicker','data-live-search':'true'})
         self.fields['relation'].initial = '3'
 
-
+'''
 class UploadFileForm(forms.Form):
     file = forms.FileField()
 

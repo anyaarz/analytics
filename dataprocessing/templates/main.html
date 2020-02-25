@@ -41,10 +41,7 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index' %}">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Analytica</div>
+        <div class="sidebar-brand-text mx-3">УЧЕБНАЯ АНАЛИТИКА</div>
       </a>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -53,7 +50,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'index' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Главная</span></a>
       </li>
 
       <!-- Divider -->
@@ -61,7 +58,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Разделы
       </div>
       {% if user.is_authenticated %} 
       <!-- Nav Item - Charts -->
@@ -74,7 +71,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'items' %}">
           <i class="fas fa-fw fa-list"></i>
-          <span>Элементы РПД</span></a>
+          <span>Учебные сущности</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
@@ -83,7 +80,21 @@
           <i class="fas fa-fw fa-sitemap"></i>
           <span>Связи</span></a>
       </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
 
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        
+      </div>
+      {% if user.is_staff %} 
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'workprograms' %}">
+          <i class="fas fa-fw fa-university"></i>
+          <span>Управление РПД</span></a>
+      </li>
+      {% endif %}
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -147,16 +158,10 @@
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
-            <a href="{% url 'edit_profile' %}"><span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user.get_full_name}}</span></a>
+            <a href="#"><span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user.get_full_name}}</span></a>
             
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Выйти
-            </a>
- 
-            {% else %}
-            <a href="{% url 'login'%}?next={{request.path}}">Войти</a>
-            <a href="{% url 'register' %}">Зарегестрироваться</a> 
+            <a href="{% url 'logout'%}">Выйти</a>
+  
             {% endif %}
           </ul>
 
@@ -187,24 +192,6 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="{% url 'login'%}?next={{request.path}}">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="/static/vendor/jquery/jquery.min.js"></script>

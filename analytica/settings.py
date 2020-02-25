@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dataprocessing',
     'crispy_forms',
+    'workprogramsapp'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -76,6 +77,7 @@ WSGI_APPLICATION = 'analytica.wsgi.application'
 FILE_UPLOAD_HANDLERS = ["django.core.files.uploadhandler.MemoryFileUploadHandler",
  "django.core.files.uploadhandler.TemporaryFileUploadHandler"]
 LOGIN_REDIRECT_URL = ('/')
+LOGOUT_REDIRECT_URL = ('/login/')
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
